@@ -1,0 +1,50 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+climateData = pd.read_csv("annual.csv")
+
+print ('Print full data')
+print (climateData)
+'''
+plt.plot(climateData['Year'][0:50], climateData['Mean'][0:50])
+plt.title("Line chart using matplotlib")
+plt.show()
+
+sns.lineplot(x="Year", y="Mean", data=climateData[0:50])
+plt.title("Line chart using seaborn")
+plt.show()
+'''
+
+sns.scatterplot(x="Year", y="Mean", data=climateData[0:50])
+plt.title("Scatter plot using seaborn - same color")
+plt.show()
+
+
+sns.scatterplot(x="Year", y="Mean", data=climateData[0:50], hue="Source")
+plt.title("Scatter plot using seaborn - using source for different colors")
+plt.xlabel("Year")
+plt.ylabel("Mean")
+
+plt.show()
+
+
+
+
+print (climateData[0:10])
+
+sns.barplot(x="Year", y="Mean", data=climateData[0:10])
+plt.title("Bar plot using seaborn without source specification")
+plt.xlabel("Year")
+plt.ylabel("Mean")
+
+plt.show()
+
+
+
+sns.barplot(x="Year", y="Mean", data=climateData[0:10], hue="Source")
+plt.title("Bar plot using seaborn with source specification")
+plt.xlabel("Year")
+plt.ylabel("Mean")
+
+plt.show()
