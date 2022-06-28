@@ -1,0 +1,45 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+data=pd.read_csv('annual.csv')
+
+print ("Full data")
+print (data)
+
+print ("print first 50 datapoints")
+print (data[0:50])
+
+print ("print first 50 datapoints using head")
+print (data.head(50))
+
+
+plt.plot(data['Year'], data['Mean'])
+plt.xlabel("years in data")
+plt.ylabel("mean")
+plt.title("Line Chart - Global Temperature Dataset - Full Data")
+plt.show()
+
+
+
+plt.plot(data['Year'][0:10], data['Mean'][0:10])
+plt.xlabel("years in data")
+plt.ylabel("mean")
+plt.title("Line Chart - Global Temperature Dataset - Partial Data")
+plt.show()
+
+
+
+plt.scatter(data['Year'][0:50], data['Mean'][0:50])
+plt.xlabel("years in data")
+plt.ylabel("mean")
+plt.title("Scatter Chart - Global Temperature Dataset - Partial Data")
+plt.show()
+
+
+
+plt.bar(data['Year'], data['Mean'])
+plt.xlabel("years in data")
+plt.ylabel("mean")
+plt.title("Bar Chart - Global Temperature Dataset - Full Data")
+plt.show()
